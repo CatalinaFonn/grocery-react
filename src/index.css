@@ -177,16 +177,14 @@ Grocery List
   0%{
     opacity: 0;
   }
-  5%{
+  10%{
     opacity: 0.8;
   }
   20%{
     opacity: 1;
-  }80%{
-    opacity: 0.5;
   }
-  100%{
-    opacity: 0;
+  30%{
+    opacity: 0.8;
   }
 }
 .alert-container{
@@ -211,7 +209,7 @@ Grocery List
   letter-spacing: var(--spacing);
   text-transform: capitalize;
   transition: var(--transition);
-  opacity: 0;
+  opacity: 1;
   animation: snackBar 2s ease-in-out;
 }
 .alert-danger {
