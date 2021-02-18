@@ -2,10 +2,13 @@ import React, { useEffect } from 'react'
 
 const Alert = ({type, msg, list, showAlert}) => {
   useEffect(()=>{
+    
     const timer = setTimeout(()=>{
       showAlert()
-    },3000)
+    
+    },1700)
     return () => clearTimeout(timer) ;
+ 
 
   },[list])
 

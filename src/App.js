@@ -33,6 +33,7 @@ function App() {
       
       // setAlert({show:true, msg:'please enter value', type:'danger'})
       showAlert(true, 'please enter value', 'danger')
+  
 
     }
     else if(name && isEditing){
@@ -50,6 +51,7 @@ function App() {
        setIsEditing(false)
        setEditID(null)
        showAlert(true,'value changed','success')
+
        
     }
     //if I have value in name and is not editing, then:
@@ -62,6 +64,7 @@ function App() {
       }
       setList([...list,newItem]);
       setName('')
+
     }
   }
 
@@ -69,17 +72,18 @@ function App() {
   const showAlert = (show=false, msg='', type='' )=>{
     setAlert( {show:show, msg, type} )
   }
-
   //Clear all list
   const clearList = () => {
     showAlert(true,'empty list', 'danger')
     setList([])
+  
   }
 
   //delete single list
   const removeItem = (id) => {
     showAlert(true, 'item removed', 'danger')
     setList(list.filter(item => item.id !== id))
+
   }
 
   //edit single list
@@ -90,6 +94,7 @@ function App() {
     setIsEditing(true)
     setEditID(id)//we need to reassign the title if we match this ID
     setName(specificItem.title) //change the title of that item
+
   }
 
   //Local storage
@@ -98,13 +103,17 @@ function App() {
   }, [list]);
 
   return (
+    <>
+     <div className="alert-container">
+         {/* ALERT BOX */}
+         {alert.show && <Alert {...alert} showAlert={showAlert} setAlert={setAlert} list={list} />}
+     </div>
     <section className="section-center">
       <form 
         className="grocery-form"
         onSubmit={handleSubmit}
       >
-        {/* ALERT BOX */}
-        {alert.show && <Alert {...alert} showAlert={showAlert} list={list} />}
+       
 
         <h3>grocery bud</h3>
         <div className="form-control">
@@ -145,6 +154,7 @@ function App() {
       }
 
     </section>
+    </>
   )
 }
 export default App;
